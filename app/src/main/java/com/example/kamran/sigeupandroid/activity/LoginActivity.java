@@ -139,19 +139,9 @@ public class LoginActivity extends Activity {
                 Log.d(TAG, "Login Response: " + toString());
                 hideDialog();
 
-                String name = "Jaime Chizavane";
-                String email = "jaime.jcm@gmail.com";
 
-                studantName.setText(name);
-                studantEmail.setText(email);
-
-                Intent intent = new Intent(LoginActivity.this,
-                        MainActivity.class);
-                startActivity(intent);
-                finish();
-
-                    /*
-
+                try
+                {
                     JSONObject jObj = new JSONObject();
 
                     List<String> listobject = new ArrayList<String>();
@@ -203,7 +193,7 @@ public class LoginActivity extends Activity {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
-                    */
+
 
             }
         }, new Response.ErrorListener() {
