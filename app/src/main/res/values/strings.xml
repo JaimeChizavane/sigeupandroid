@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">SIGEUP Mobile</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Definições</string>
+
+
+    <string name="action_settings1">Portal do Estudante</string>
+    <string name="action_settings2">Situação Financeira</string>
+    <string name="action_settings3">Inscrições</string>
+
+    <string name="action_settings4">Sair</string>
+
+
+    <string name="login_edit_user">Usúario</string>
+    <string name="login_password_hint">Senha</string>
+    <string name="login_button">Autenticar</string>
+    <string name="clear_button">Limpar</string>
+
+
+</resources>
