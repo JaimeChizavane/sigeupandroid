@@ -99,7 +99,19 @@ public class LoginActivity extends Activity {
                         // Check for empty data in the form
                         if (!username.isEmpty() && !password.isEmpty()) {
                             // login user
-                            checkLogin(username /*, password*/);
+                            //checkLogin(username /*, password*/);
+                            /*
+                            String name = "Jaime Chizavane";
+                            String email = "jaime.jcm@gmail.com";
+
+                            studantName.setText(name);
+                            studantEmail.setText(email);
+                            */
+
+                            Intent intent = new Intent(LoginActivity.this,
+                                    MainActivity.class);
+                            startActivity(intent);
+                            finish();
                         } else {
                             // Prompt user to enter credentials
                             Toast.makeText(getApplicationContext(),
@@ -126,7 +138,7 @@ public class LoginActivity extends Activity {
     private void checkLogin(final String username /* , final String password*/) {
         // Tag used to cancel the request
         String tag_string_req = "req_login";
-        final String result = null;
+        final String result = "estudante";
 
         pDialog.setMessage("Entrando ...");
         showDialog();
@@ -138,6 +150,7 @@ public class LoginActivity extends Activity {
             public void onResponse(String response) {
                 Log.d(TAG, "Login Response: " + toString());
                 hideDialog();
+
 
 
                 try
@@ -175,6 +188,8 @@ public class LoginActivity extends Activity {
                         studantName.setText(name);
                         studantEmail.setText(email);
 
+                        Log.i(name, email);
+
 
                         // Launch main activity
                         Intent intent = new Intent(LoginActivity.this,
@@ -193,6 +208,7 @@ public class LoginActivity extends Activity {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
+
 
 
             }

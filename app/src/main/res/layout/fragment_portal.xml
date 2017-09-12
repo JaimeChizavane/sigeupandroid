@@ -2,12 +2,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="layout.BlankFragment">
+    tools:context="layout.PortalFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!--<TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@string/action_settings1" />
+        -->
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="#00000c"
+        android:padding="10dp"
+        android:text="Portal do estudante"
+        android:textColor="#fafafa"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginLeft="5dp"
+        android:background="#AA000000"
+        android:padding="10dp"
+        android:text="Actualizado: 26/Jul/2017"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <Spinner
+        android:id="@+id/portal_spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ir_button"
+        android:id="@+id/ir_button"
+        android:layout_marginTop="150dp"
+        />
+
 
 </FrameLayout>
