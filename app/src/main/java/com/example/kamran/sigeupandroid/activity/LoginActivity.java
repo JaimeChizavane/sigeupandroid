@@ -99,14 +99,14 @@ public class LoginActivity extends Activity {
                         // Check for empty data in the form
                         if (!username.isEmpty() && !password.isEmpty()) {
                             // login user
-                            //checkLogin(username /*, password*/);
-                            /*
-                            String name = "Jaime Chizavane";
+                            checkLogin(username /*, password*/);
+
+                            /*String name = "Jaime Chizavane";
                             String email = "jaime.jcm@gmail.com";
 
                             studantName.setText(name);
-                            studantEmail.setText(email);
-                            */
+                            studantEmail.setText(email);*/
+
 
                             Intent intent = new Intent(LoginActivity.this,
                                     MainActivity.class);
@@ -188,7 +188,7 @@ public class LoginActivity extends Activity {
                         studantName.setText(name);
                         studantEmail.setText(email);
 
-                        Log.i(name, email);
+                        Toast.makeText(getApplicationContext(), name + email, Toast.LENGTH_LONG).show();
 
 
                         // Launch main activity
