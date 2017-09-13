@@ -146,6 +146,8 @@ public class LoginActivity extends Activity {
         StringRequest strReq = new StringRequest(Method.GET,
                 AppConfig.URL_USUARIO+username, new Response.Listener<String>() {
 
+
+
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Login Response: " + toString());
@@ -188,7 +190,7 @@ public class LoginActivity extends Activity {
                         studantName.setText(name);
                         studantEmail.setText(email);
 
-                        Toast.makeText(getApplicationContext(), name + email, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), name + email, Toast.LENGTH_LONG).show();
 
 
                         // Launch main activity
