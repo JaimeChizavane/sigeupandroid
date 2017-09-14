@@ -18,9 +18,13 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Request.Method;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
+
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +36,7 @@ import java.util.Map;
 import java.util.List;
 
 //import com.example.kamran.sigeupandroid.R;
+import com.android.volley.toolbox.Volley;
 import com.example.kamran.navigationdrawer.R;
 import com.example.kamran.sigeupandroid.app.AppConfig;
 import com.example.kamran.sigeupandroid.app.AppController;
@@ -58,6 +63,8 @@ public class LoginActivity extends Activity {
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
+
+    //private RequestQueue requestQueue;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,8 +105,16 @@ public class LoginActivity extends Activity {
 
                         // Check for empty data in the form
                         if (!username.isEmpty() && !password.isEmpty()) {
+
+                            //Just testing if the user parsing is correct
+                            Toast.makeText(getApplicationContext(), username, Toast.LENGTH_LONG);
+
+
                             // login user
                             checkLogin(username /*, password*/);
+
+                            //Here I' just checking the second method attempt
+                            checkLogin1(username);
 
                             /*String name = "Jaime Chizavane";
                             String email = "jaime.jcm@gmail.com";
@@ -134,8 +149,42 @@ public class LoginActivity extends Activity {
         });
     }
 
+    private void checkLogin1(String username){
+        //Here I'm starting a new Request Queue
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        //Parsing the username in a JsonObjectRequest
+        String url = AppConfig.URL_USUARIO+username;
+
+        // prepare the Request
+        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // display response
+                        Log.d("Response", response.toString());
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        //Well in the tutorial it was written response (what doesnt make sense) so i took the freedom to change to error.toString()
+                        Log.d("Error.Response", error.toString());
+                    }
+                }
+        );
+
+        // add it to the RequestQueue
+        requestQueue.add(getRequest);
+
+    }
 
     private void checkLogin(final String username /* , final String password*/) {
+
+
+
         // Tag used to cancel the request
         String tag_string_req = "req_login";
         final String result = "estudante";
@@ -160,6 +209,8 @@ public class LoginActivity extends Activity {
                     JSONObject jObj = new JSONObject();
 
                     List<String> listobject = new ArrayList<String>();
+
+                    //listobject = <String> jObj;
 
                     JSONArray cast = jObj.getJSONArray(result);
 
